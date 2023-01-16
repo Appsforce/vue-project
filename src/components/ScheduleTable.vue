@@ -76,16 +76,16 @@ export default {
 }
 
 :deep(.v-data-table__tr:nth-of-type(odd) td) {
-  background-color: #f5f5fc;
+  background-color: var(--rowCol);
 }
 
 :deep(.v-data-table__tr:hover td) {
-  background-color: #f1f1fd;
+  background-color: var(--tableHover);
 }
 
 :deep(.v-data-table__th) {
-  color: #adb2c2 !important;
-  background-color: #f7f8fb !important;
+  color: var(--rowColor) !important;
+  background-color: var(--primary) !important;
 }
 
 :deep(.v-data-table-footer) {
@@ -93,19 +93,19 @@ export default {
 }
 
 .interval {
-  background-color: #d0e9df;
+  background-color: var(--intervalColor);
   padding: 5px;
   border-radius: 3px;
 }
 
 .colored-row {
-  background-color: #f5f5fc;
+  background-color: var(--rowCol);
 }
 
 .letters-box {
   margin-right: 8px;
-  color: #8187c2;
-  background-color: #e4e5ff;
+  color: var(--lettersBox);
+  background-color: var(--lettersBoxBackground);
   font-size: 10px;
   font-weight: 600;
   padding: 2px 3px 2px 3px;

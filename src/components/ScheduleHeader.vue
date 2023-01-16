@@ -18,13 +18,13 @@ const sendInput = (e: any) => {
 
 <style scoped>
 .title {
-  color: #3f434e;
+  color: var(--pageTitle);
 }
 .input {
   height: 40px;
   font-size: 18px;
   padding: 5px;
-  border: 1px solid #1a5cd6;
+  border: 1px solid var(--inputBorder);
   border-radius: 5px;
 }
 </style>

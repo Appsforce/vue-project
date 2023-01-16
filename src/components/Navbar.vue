@@ -42,7 +42,7 @@ defineEmits<{ (e: 'tab-changed', tab: Trigger): void }>();
     display: flex;
     flex-direction: row;
     width: 100%;
-    height: 50px;
+    height: 55px;
 }
 
 .nav-item {
@@ -50,31 +50,31 @@ defineEmits<{ (e: 'tab-changed', tab: Trigger): void }>();
     align-self: center;
     justify-content: center;
     gap: 10px;
-    line-height: 50px;
+    line-height: 55px;
     font-weight: bold;
     width: 33.333%;
     font-size: 23px;
     height: 55px;
-    color: #adb2c2;
-    border-bottom: 1px solid #adb2c2;
+    color: var(--navColor);
+    border-bottom: 1px solid var(--navColor);
 }
 
 .nav-item:hover {
     cursor: pointer;
-    color: #707685;
-    border-bottom: 1px solid #707685;
+    color: var(--navHover);
+    border-bottom: 1px solid var(--navHover);
 }
 
 .nav-item-clicked {
     display: flex;
     align-items: center;
     font-weight: bold;
-    color: #707685;
-    border-bottom: 5px solid #707685;
+    color: var(--navHover);
+    border-bottom: 5px solid var(--navHover);
 }
 
 .nav-item-clicked:hover {
-    border-bottom: 5px solid #707685;
+    border-bottom: 5px solid var(--navHover);
 }
 
 .title {
@@ -82,7 +82,7 @@ defineEmits<{ (e: 'tab-changed', tab: Trigger): void }>();
 }
 
 .container {
-    background-color: #f7f8fb;
+    background-color: var(--primary);
 }
 
 .header {

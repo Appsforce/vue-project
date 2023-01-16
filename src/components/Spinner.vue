@@ -22,10 +22,10 @@
     width: 64px;
     height: 64px;
     margin: 8px;
-    border: 8px solid #8157f1;
+    border: 8px solid var(--spinnerColor);
     border-radius: 50%;
     animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-    border-color: #8157f1 transparent transparent transparent;
+    border-color: var(--spinnerColor) transparent transparent transparent;
 }
 
 .lds-ring div:nth-child(1) {

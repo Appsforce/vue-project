@@ -78,7 +78,7 @@ onMounted(fetchData);
 
 .table-page-container {
   height: 100vh;
-  background-color: #f7f8fb;
+  background-color: var(--primary);
 }
 
 .spinner {

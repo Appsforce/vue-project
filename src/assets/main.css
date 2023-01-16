@@ -8,4 +8,14 @@ html {
 
 :root {
     --primary: #f7f8fb;
+    --tableHover: #f1f1fd;
+    --navColor: #adb2c2;
+    --rowCol: #f5f5fc;
+    --navHover: #707685;
+    --pageTitle: #3f434e;
+    --inputBorder: #1a5cd6;
+    --intervalColor: #d0e9df;
+    --lettersBox: #8187c2;
+    --lettersBoxBackground: #e4e5ff;
+    --spinnerColor: #8157f1;
 }
