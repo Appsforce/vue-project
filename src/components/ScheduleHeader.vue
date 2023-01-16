@@ -9,7 +9,6 @@ const sendInput = (e: any) => {
 </script>
 
 
-
 <template>
   <div class="header">
       <h1 class="title">Summaries and notifications</h1>
