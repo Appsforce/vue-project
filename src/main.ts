@@ -11,7 +11,7 @@ import { fa } from 'vuetify/iconsets/fa'
 import { md } from 'vuetify/iconsets/md'
 import { mdi } from 'vuetify/iconsets/mdi'
 import { mdi as mdiSvg } from 'vuetify/iconsets/mdi-svg'
-
+import './assets/main.css';
 
 const vuetify = createVuetify({
   components: {

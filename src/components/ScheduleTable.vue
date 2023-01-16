@@ -4,45 +4,47 @@ import type { Trigger } from '@/models/Schedule';
 export default {
   props: ['items', 'shownTab'],
   emits: ['ScheduleDelete'],
-  data () {
+  data() {
     return {
-    sortBy: [{ key: 'creator.name', order: 'asc' }],
-    headers: [
-      {
-        title: 'Title',
-        align: 'start',
-        sortable: true,
-        key: 'title',
-      },
-      { title: 'CREATOR', key: 'creator.name', sortable: true},
-      { title: 'RECIPIENTS', key: 'recipients', sortable: true},
-      { title: 'INTERVAL', key: 'interval' },
-      { title: 'NEXT DELIVERY', key: 'next_delivery' },
-      { title: '', key: 'delete', sortable: false },
-    ],
-  }},
+      chooseClass: true,
+      sortBy: [{ key: 'creator.name', order: 'asc' }],
+      headers: [
+        { title: 'TITLE', align: 'start', sortable: true, key: 'title', width: 200 },
+        { title: 'CREATOR', key: 'creator.name', sortable: true, width: 160 },
+        { title: 'RECIPIENTS', key: 'recipients', sortable: true },
+        { title: 'INTERVAL', key: 'interval' },
+        { title: 'NEXT DELIVERY', key: 'next_delivery', width: 190 },
+        { title: '', key: 'delete', sortable: false },
+      ],
+    }
+  },
   methods: {
     deleteSchedule(id: string, shownTab: Trigger) {
-        this.$emit('ScheduleDelete', {
-          id: id,
-          deleteSchedule: shownTab
-        })
+      this.$emit('ScheduleDelete', {
+        id: id,
+        deleteSchedule: shownTab
+      })
+    },
+    itemRowBackground: function () {
+      return this.chooseClass ? 'colored-row' : 'colored-row'
+    },
+    firstLetters(creatorName: string, item: any) {
+      const firstLetters = creatorName.match(/\b(\w)/g); //Finds first letter of word in string
+      return firstLetters?.join('')
     }
   }
 }
 </script>
 <template>
-  <v-data-table
-    v-model:sort-by="sortBy"
-    :headers="headers"
-    :items="items"
-    class="elevation-1"
-  >
+  <v-data-table v-model:sort-by="sortBy" :headers="headers" :items="items" class="elevation-1" hide-default-footer>
     <template v-slot:item.creator.name="{ item }">
-      <span onmouseover="">{{ item.raw.creator.name }}</span>
+      <div class="creator-container"><span class="letters-box">{{
+        firstLetters(item.raw.creator.name,
+        item)
+      }}</span><span>{{ item.raw.creator.name }}</span></div>
     </template>
     <template v-slot:item.delete="{ item }">
-      <img class="icon" src="../assets/icons/trash_icon.png" @click="deleteSchedule(item.raw.creator.id, shownTab)"/>
+      <img class="icon" src="../assets/icons/trash_icon.png" @click="deleteSchedule(item.raw.creator.id, shownTab)" />
     </template>
     <template v-slot:item.interval="{ item }">
       <span class="interval">{{ item.raw.interval }}</span>
@@ -55,17 +57,62 @@ export default {
   width: 25px;
   height: 25px;
 }
+
 .icon:hover {
   cursor: pointer;
 }
-.v-data-table__tr:hover .icon{
+
+.v-data-table__tr:hover .icon {
   visibility: visible;
 }
+
 .v-data-table__tr .icon {
   visibility: hidden;
 }
+
+:deep(.v-data-table__tr) {
+  font-size: 14px;
+  height: 70px;
+}
+
+:deep(.v-data-table__tr:nth-of-type(odd) td) {
+  background-color: #f5f5fc;
+}
+
+:deep(.v-data-table__tr:hover td) {
+  background-color: #f1f1fd;
+}
+
+:deep(.v-data-table__th) {
+  color: #adb2c2 !important;
+  background-color: #f7f8fb !important;
+}
+
+:deep(.v-data-table-footer) {
+  display: none;
+}
+
 .interval {
-  background-color: #d9ffd9;
+  background-color: #d0e9df;
   padding: 5px;
+  border-radius: 3px;
+}
+
+.colored-row {
+  background-color: #f5f5fc;
+}
+
+.letters-box {
+  margin-right: 8px;
+  color: #8187c2;
+  background-color: #e4e5ff;
+  font-size: 10px;
+  font-weight: 600;
+  padding: 2px 3px 2px 3px;
+}
+
+.creator-container {
+  display: flex;
+  align-items: center;
 }
 </style>

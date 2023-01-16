@@ -16,8 +16,3 @@ export interface Schedule {
 
 export type DataByTrigger = { [key in Trigger]: Schedule[] }
 
-
-export type TableLength = { [key in Trigger]: number }
-
-export type ChoosenTab = { [key in Trigger]: boolean }
-
